@@ -153,7 +153,7 @@ app.get('/api/drivers/search/:subString', async (req, res) => {
     const { data, error } = await supabase
     .from('drivers')
     .select()
-    .ilike('surname', subString); // 'ilike' is a case insensitive 'like'
+    .ilike('surname', `${subString}%`); // 'ilike' is a case insensitive 'like'
 
     handleData(res, data, error, "Driver(s) not found.");
 });
