@@ -301,7 +301,7 @@ API 18
 
 Returns all the results for a given driver between two years
  */
-app.get('/api/results/drivers/:driverRef/seasons/:startYear/:endYear', async (req, res) => {
+app.get('/api/results/driver/:driverRef/seasons/:startYear/:endYear', async (req, res) => {
     const startYear = parseInt(req.params.startYear);
     const endYear = parseInt(req.params.endYear);
 
