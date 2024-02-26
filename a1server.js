@@ -127,15 +127,19 @@ app.get('/api/drivers', async (req, res) => {
 API 8
 
 Returns just the specified driver (use the driverRef field)
+(Added extra case insensitivity)
  */
 app.get('/api/drivers/:driverRef', async (req, res) => {
+    const driverRef = req.params.driverRef;
+
     const { data, error } = await supabase 
     .from('drivers')
     .select()
-    .eq('driverRef', req.params.driverRef);
+    .eq('driverRef', driverRef.toLowerCase());
 
     handleData(res, data, error, "Driver not found.");
 });
+
 
 /*
 API 9
